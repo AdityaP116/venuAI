@@ -1,34 +1,46 @@
-# ─── Stage 1: Build Frontend ───────────────────────────────────────────
-FROM node:20-alpine AS builder
+# --- Stage 1: Build the Frontend ---
+FROM node:20-slim AS build-stage
 
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./
-RUN npm ci
+# Copy root package files
+COPY package.json package-lock.json* ./
 
-# Copy source code and build
+# Install all dependencies (dev + prod) for building
+RUN npm install
+
+# Copy all code
 COPY . .
+
+# Build the frontend (Vite generates the 'dist' folder)
 RUN npm run build
 
-# ─── Stage 2: Production Server ────────────────────────────────────────
-FROM node:20-alpine AS runner
+# --- Stage 2: Production Server ---
+FROM node:20-slim AS production-stage
 
 WORKDIR /app
 
-# Copy the built frontend from builder
-COPY --from=builder /app/dist ./dist
+# Copy server code and its package files
+COPY server/package.json server/package-lock.json* ./server/
+COPY server/ ./server/
 
-# Copy the server directory and set up backend dependencies
-COPY server/package.json server/package-lock.json ./server/
-RUN cd server && npm ci --omit=dev
+# Install ONLY production dependencies for the server
+RUN cd server && npm install --production
 
-# Copy the rest of the backend files
-COPY server ./server
+# Copy the built frontend from the build stage
+COPY --from=build-stage /app/dist ./dist
 
-# Expose standard Cloud Run environment variables
+# The server serves the 'dist' folder from '../dist' relative to server/index.js
+# This matches the internal structure:
+# /app/server/index.js
+# /app/dist/
+
+# Set environment variables
 ENV NODE_ENV=production
 ENV PORT=8080
+
+# Cloud Run expects the container to listen on $PORT
 EXPOSE 8080
 
+# Start the server
 CMD ["node", "server/index.js"]
