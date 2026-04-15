@@ -1,0 +1,437 @@
+/* ===== Guard Login Page ===== */
+.guard-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Background */
+.guard-login-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-primary);
+}
+
+.guard-login-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.guard-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.guard-orb-1 {
+  width: 450px;
+  height: 450px;
+  background: rgba(34, 211, 238, 0.14);
+  top: -12%;
+  right: -8%;
+}
+
+.guard-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(6, 182, 212, 0.1);
+  bottom: -8%;
+  left: -5%;
+  animation-delay: -3s;
+}
+
+.guard-orb-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(34, 211, 238, 0.06);
+  top: 40%;
+  left: 25%;
+  animation-delay: -6s;
+}
+
+.guard-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+  animation: scanLine 6s linear infinite;
+}
+
+/* Container */
+.guard-login-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  max-width: 1040px;
+  width: 100%;
+  min-height: 660px;
+  background: rgba(15, 15, 35, 0.6);
+  backdrop-filter: blur(40px);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(34, 211, 238, 0.04);
+  animation: fadeInScale 0.6s ease-out;
+}
+
+/* Branding Panel */
+.guard-branding {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(6, 182, 212, 0.05));
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(34, 211, 238, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.guard-branding::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06), transparent 40%);
+}
+
+.guard-branding-content {
+  position: relative;
+  z-index: 1;
+}
+
+.guard-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.guard-brand-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  border-radius: var(--radius-lg);
+  color: white;
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.35);
+}
+
+.guard-brand-logo h1 {
+  font-size: 32px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #67e8f9, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.guard-brand-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #67e8f9;
+  background: rgba(34, 211, 238, 0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.guard-brand-tagline {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 12px 0 36px;
+  line-height: 1.5;
+}
+
+.guard-brand-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.guard-brand-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.guard-brand-feature svg {
+  color: #67e8f9;
+}
+
+.guard-brand-stats {
+  display: flex;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(34, 211, 238, 0.12);
+}
+
+.guard-brand-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.guard-stat-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.guard-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Form Panel */
+.guard-form-panel {
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guard-form-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+.guard-form-header {
+  margin-bottom: 28px;
+}
+
+.guard-form-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.guard-form-header p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Error */
+.guard-login-error {
+  background: var(--status-danger-bg);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--neon-red);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideDown 0.3s ease;
+}
+
+/* Form */
+.guard-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guard-form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.guard-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.guard-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-glass-strong);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  transition: all var(--transition-fast);
+}
+
+.guard-input-wrapper:focus-within {
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+
+.guard-input-wrapper svg {
+  color: var(--text-muted);
+  min-width: 16px;
+}
+
+.guard-input-wrapper input {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.guard-input-wrapper input::placeholder {
+  color: var(--text-muted);
+}
+
+.guard-toggle-password {
+  padding: 4px;
+  color: var(--text-muted);
+  border-radius: 4px;
+  transition: color var(--transition-fast);
+}
+
+.guard-toggle-password:hover {
+  color: var(--text-primary);
+}
+
+/* Submit */
+.guard-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.3);
+  transition: all var(--transition-base);
+  margin-top: 4px;
+}
+
+.guard-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(34, 211, 238, 0.4);
+}
+
+.guard-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.guard-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.guard-submit-btn.loading {
+  pointer-events: none;
+}
+
+.guard-btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Divider */
+.guard-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.guard-login-divider::before,
+.guard-login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.guard-login-divider span {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Demo Button */
+.guard-demo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  color: #67e8f9;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.guard-demo-btn:hover:not(:disabled) {
+  background: rgba(34, 211, 238, 0.16);
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.guard-demo-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Back Link */
+.guard-back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.guard-back-btn {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.guard-back-btn:hover {
+  color: #67e8f9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .guard-login-container {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+  }
+
+  .guard-branding {
+    display: none;
+  }
+
+  .guard-form-panel {
+    padding: 32px 24px;
+  }
+}

@@ -1,0 +1,41 @@
+# NutriSense AI – Project Requirements Document
+
+## 📌 Project Overview
+NutriSense AI is a context-aware food assistant designed to help users make smarter eating decisions in real-time using AI, behavioral insights, and Google-powered intelligence.
+
+## 🎯 Core MVP Features
+1. **Input Screen**: Goal selection (fitness/weight loss/healthy) and Time context (morning/afternoon/night).
+2. **Food Input**: Text or dropdown entry for meals (e.g., "Burger").
+3. **AI Decision Engine**: 
+    - Output: Approx Calories, Health Score, and Better Alternatives.
+    - Logic Example: `Burger + Night + Weight Loss` -> `❌ High calorie (650 kcal) | ✅ Try: Grilled Paneer Wrap (350 kcal)`.
+4. **Dashboard**: Daily food score and suggestion cards.
+
+## 🛠️ Tech Stack & Integrations
+- **Frontend**: Ionic + React (Clean, modern UI).
+- **Backend/Auth**: Firebase (Firestore).
+- **AI**: Google Gemini API for smart recommendations.
+- **Location**: Google Maps API for nearby healthy suggestions.
+
+## 🧠 Decision Logic (Rule-based + AI)
+```javascript
+function getSuggestion(food, goal, time) {
+  if (goal === "weight_loss") {
+    if (food === "burger") {
+      return {
+        calories: 650,
+        score: 40,
+        suggestion: "Grilled sandwich"
+      };
+    }
+  }
+  if (time === "night") {
+    return {
+      warning: "Avoid heavy meals at night"
+    };
+  }
+}
+```
+
+## 🌍 Vision & Pitch
+“NutriSense AI is a context-aware food assistant that helps users make smarter eating decisions in real time using AI, behavioral insights, and Google-powered intelligence.”

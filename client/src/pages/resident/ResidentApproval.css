@@ -1,0 +1,181 @@
+/* ============================================================
+   ResidentApproval.css — OTP-based visitor approval for residents
+   ============================================================ */
+
+.res-approval-page { padding: 1.5rem; max-width: 900px; }
+
+/* ── Header ── */
+.res-approval-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.res-approval-title h2 {
+  font-size: 1.35rem; font-weight: 700; color: #fff; margin: 0 0 0.25rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.res-approval-title p { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin: 0; }
+
+.res-refresh-btn {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6); padding: 0.5rem 1rem; border-radius: 10px;
+  cursor: pointer; font-size: 0.82rem; display: flex; align-items: center; gap: 0.5rem;
+  transition: all 0.2s;
+}
+.res-refresh-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+/* ── Stats bar ── */
+.res-stats { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.res-stat-card {
+  flex: 1; min-width: 130px; padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px; display: flex; flex-direction: column; gap: 0.3rem;
+}
+.res-stat-card .stat-num { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.res-stat-card .stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.res-stat-card.pending  .stat-num { color: #f59e0b; }
+.res-stat-card.approved .stat-num { color: #10b981; }
+.res-stat-card.denied   .stat-num { color: #ef4444; }
+
+/* ── Empty state ── */
+.res-empty {
+  text-align: center; padding: 4rem 2rem;
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; color: rgba(255,255,255,0.4);
+}
+.res-empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+.res-empty h3 { font-size: 1rem; color: rgba(255,255,255,0.6); margin: 0 0 0.5rem; }
+.res-empty p { font-size: 0.82rem; }
+
+/* ── OTP Cards ── */
+.res-otp-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.otp-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; overflow: hidden; transition: border-color 0.2s;
+}
+.otp-card.pending  { border-color: rgba(245,158,11,0.25); }
+.otp-card.approved { border-color: rgba(16,185,129,0.25); }
+.otp-card.rejected { border-color: rgba(239, 68, 68, 0.25); }
+.otp-card.expired  { border-color: rgba(255,255,255,0.06); opacity: 0.6; }
+
+.otp-card-top {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  gap: 1.25rem; align-items: center; padding: 1.25rem;
+}
+
+/* Visitor photo */
+.otp-visitor-photo {
+  width: 80px; height: 80px; border-radius: 12px; overflow: hidden;
+  background: rgba(255,255,255,0.05); flex-shrink: 0; position: relative;
+}
+.otp-visitor-photo img { width: 100%; height: 100%; object-fit: cover; }
+.otp-photo-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center;
+  justify-content: center; font-size: 2rem; background: rgba(16,185,129,0.1);
+}
+
+/* Visitor info */
+.otp-visitor-info { min-width: 0; }
+.otp-visitor-name { font-size: 1rem; font-weight: 600; color: #fff; margin: 0 0 0.3rem; }
+.otp-visitor-meta {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;
+}
+.otp-meta-tag {
+  font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 6px;
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6);
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.otp-trust-badge {
+  font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 600;
+}
+.otp-trust-badge.Low    { background: rgba(16,185,129,0.15); color: #10b981; }
+.otp-trust-badge.Medium { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.otp-trust-badge.High   { background: rgba(239,68,68,0.15);  color: #ef4444; }
+
+.otp-time { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+/* Status badge */
+.otp-status-badge {
+  padding: 0.3rem 0.8rem; border-radius: 8px; font-size: 0.75rem; font-weight: 600;
+  flex-shrink: 0;
+}
+.otp-status-badge.pending  { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.otp-status-badge.approved { background: rgba(16,185,129,0.15); color: #10b981; }
+.otp-status-badge.rejected { background: rgba(239,68,68,0.15);  color: #ef4444; }
+.otp-status-badge.expired  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.3); }
+
+/* OTP Entry Section */
+.otp-card-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06); padding: 1rem 1.25rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+
+.otp-input-group {
+  display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 200px;
+}
+.otp-input-group label {
+  font-size: 0.8rem; color: rgba(255,255,255,0.5); white-space: nowrap;
+}
+.otp-code-input {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; padding: 0.55rem 1rem; border-radius: 10px; font-size: 1.1rem;
+  font-weight: 700; letter-spacing: 0.3em; width: 140px; text-align: center;
+  font-family: 'Courier New', monospace; outline: none; transition: border-color 0.2s;
+}
+.otp-code-input:focus { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+.otp-code-input:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.otp-timer {
+  font-size: 0.75rem; color: #f59e0b; display: flex; align-items: center; gap: 0.3rem;
+}
+.otp-timer.expired-timer { color: #ef4444; }
+
+.otp-action-btns { display: flex; gap: 0.75rem; }
+
+.otp-approve-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none; color: #fff; padding: 0.6rem 1.25rem; border-radius: 10px;
+  font-weight: 600; font-size: 0.85rem; cursor: pointer;
+  display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s;
+}
+.otp-approve-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+.otp-approve-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.otp-reject-btn {
+  background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25);
+  color: #ef4444; padding: 0.6rem 1.25rem; border-radius: 10px;
+  font-weight: 600; font-size: 0.85rem; cursor: pointer;
+  display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s;
+}
+.otp-reject-btn:hover:not(:disabled) { background: rgba(239,68,68,0.2); }
+.otp-reject-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.otp-result-msg {
+  font-size: 0.82rem; display: flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.75rem;
+  border-radius: 8px; font-weight: 500;
+}
+.otp-result-msg.success { background: rgba(16,185,129,0.1); color: #10b981; }
+.otp-result-msg.error   { background: rgba(239,68,68,0.1);  color: #ef4444; }
+
+/* ── Spinner ── */
+.res-loading {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  padding: 3rem; color: rgba(255,255,255,0.4); font-size: 0.875rem;
+}
+.res-spinner {
+  width: 24px; height: 24px; border: 2px solid rgba(16,185,129,0.2);
+  border-top-color: #10b981; border-radius: 50%; animation: res-spin 0.7s linear infinite;
+}
+@keyframes res-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .otp-card-top { grid-template-columns: 60px 1fr; }
+  .otp-status-badge { display: none; }
+  .otp-card-bottom { flex-direction: column; align-items: stretch; }
+  .otp-action-btns { width: 100%; }
+  .otp-approve-btn, .otp-reject-btn { flex: 1; justify-content: center; }
+}

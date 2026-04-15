@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NutriSense AI - AI Decision Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#fefcff",
+                        "on-tertiary-fixed-variant": "#6c3a00",
+                        "surface-container-highest": "#e1e3e1",
+                        "on-secondary-fixed-variant": "#004493",
+                        "outline-variant": "#bfcaba",
+                        "primary": "#0d631b",
+                        "primary-fixed": "#a3f69c",
+                        "on-tertiary-container": "#ffeee2",
+                        "secondary": "#0058bc",
+                        "inverse-on-surface": "#eff1ef",
+                        "tertiary-container": "#a45b00",
+                        "secondary-container": "#0070eb",
+                        "on-secondary-fixed": "#001a41",
+                        "surface-container": "#eceeec",
+                        "on-surface": "#191c1b",
+                        "on-background": "#191c1b",
+                        "tertiary-fixed-dim": "#ffb778",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary": "#814700",
+                        "surface-dim": "#d8dad9",
+                        "inverse-primary": "#88d982",
+                        "tertiary-fixed": "#ffdcc1",
+                        "on-primary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "background": "#f8faf8",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f8faf8",
+                        "surface-tint": "#1b6d24",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-surface-variant": "#40493d",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-variant": "#e1e3e1",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#2e7d32",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f2",
+                        "surface": "#f8faf8",
+                        "on-tertiary-fixed": "#2e1500",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005312",
+                        "outline": "#707a6c",
+                        "surface-container-high": "#e6e9e7",
+                        "inverse-surface": "#2e3130"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .sunlight-shadow {
+            box-shadow: 0px 20px 40px rgba(25, 28, 27, 0.06);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-emerald-50/80 dark:bg-zinc-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-emerald-900 dark:text-emerald-100 italic font-manrope tracking-tight">NutriSense AI</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Dashboard</a>
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Nutrition Log</a>
+<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600" href="#">AI Insights</a>
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Meal Plans</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant">history</button>
+<button class="material-symbols-outlined text-on-surface-variant">notifications</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="professional headshot of a person with friendly expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTJqnAxjn8VjsslsDMwdFyMnUnHE9vsb73lBIFAJ9AyD9x57MQ2Ed0tqK21umdrsn8xrpLJXHvwVAxf7xZM8zHue7YfjrmswE9oYzieSyesMswsXaTmH8z7fwe4GGgptl1SDYEPI-WzzjzrWi-Gfuz8LOsfoVE33OQMHDcyzqEZNBtA0k0nnK8wyGsIpGGP64b6rKr_Pr51XpCA4wzlQZGL-UCg8p9_MUezMNPUwaXaafJI40J8R8XhLYxLN1yB9qRonBLrrBQKY3y"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-4 max-w-7xl mx-auto min-h-screen">
+<!-- Result Header -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-on-surface-variant font-label text-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                    Night Analysis • Weight Loss Goal
+                </div>
+<h1 class="text-4xl md:text-5xl font-black tracking-tight text-on-surface leading-tight">AI Decision Engine</h1>
+<p class="text-lg text-on-surface-variant max-w-xl">Real-time metabolic impact assessment for your late-night craving.</p>
+</div>
+<div class="inline-flex items-center px-4 py-2 rounded-xl bg-error-container text-on-error-container font-bold gap-2 sunlight-shadow">
+<span class="material-symbols-outlined">report</span>
+                ❌ Not Ideal
+            </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Current Selection Analysis -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Bento Card: Primary Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Calorie Display -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl sunlight-shadow flex flex-col justify-between aspect-video md:aspect-square">
+<span class="text-label text-on-surface-variant font-semibold">Energy Density</span>
+<div>
+<div class="text-6xl font-black text-on-surface tracking-tighter">650</div>
+<div class="text-xl font-bold text-on-surface-variant italic">kcal</div>
+</div>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-3/4"></div>
+</div>
+</div>
+<!-- Health Score -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl sunlight-shadow flex flex-col justify-between aspect-video md:aspect-square">
+<span class="text-label text-on-surface-variant font-semibold">Metabolic Health Score</span>
+<div class="relative flex items-center justify-center">
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-tertiary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="218.6" stroke-width="12"></circle>
+</svg>
+<span class="absolute text-4xl font-black text-tertiary">40</span>
+</div>
+<p class="text-sm text-on-surface-variant text-center font-medium italic">Poor alignment with goal</p>
+</div>
+</div>
+<!-- Analysis/Why Section -->
+<div class="bg-surface-container-low p-8 rounded-3xl space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<h2 class="text-2xl font-bold">Why?</h2>
+</div>
+<div class="space-y-4">
+<p class="text-on-surface-variant leading-relaxed">
+                            A high-carb, high-fat meal like a <span class="font-bold text-on-surface">Burger</span> at night triggers a significant insulin spike. During the evening, your body's insulin sensitivity naturally decreases.
+                        </p>
+<div class="flex flex-col md:flex-row gap-4 py-4">
+<div class="flex-1 p-4 rounded-2xl bg-surface-container-highest">
+<span class="material-symbols-outlined text-tertiary mb-2">speed</span>
+<p class="text-sm font-semibold mb-1">Slow Metabolism</p>
+<p class="text-xs text-on-surface-variant">Late-night calories are processed less efficiently, favoring fat storage.</p>
+</div>
+<div class="flex-1 p-4 rounded-2xl bg-surface-container-highest">
+<span class="material-symbols-outlined text-secondary mb-2">bedtime</span>
+<p class="text-sm font-semibold mb-1">Sleep Quality</p>
+<p class="text-xs text-on-surface-variant">Heavy digestion can disrupt REM cycles, leading to higher ghrelin levels tomorrow.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Recommendation -->
+<div class="lg:col-span-5 space-y-6">
+<div class="sticky top-24">
+<div class="bg-primary text-on-primary rounded-3xl p-1 flex flex-col sunlight-shadow overflow-hidden">
+<div class="px-6 py-4 flex items-center justify-between">
+<span class="font-bold uppercase tracking-widest text-xs opacity-90">Better Alternative</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="bg-surface-container-lowest text-on-surface m-1 rounded-[22px] overflow-hidden">
+<img alt="Grilled Paneer Wrap" class="w-full h-48 object-cover" data-alt="close-up of a fresh grilled paneer wrap with colorful vegetables and herbs on a wooden plate in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr5EIz02Sh_xIwGumaT4YZD_YoFSo-F6vmh6Q-EZClolPMAbjN3sW9S1NIU7AeD3ACR1yl8tm8gOfCwLGfgYO7viXADnEG_X47zkfm8o-1qgztNkWSwKGPKbfJDYfkY2nqwSKgA4vxxccClPTmr96OPkdtkao3MsOpAmLGZV20_0GGgR1HjOJB--fE5CKzcgZOY4wF4DbDEdsb0zTmqL3MsdhpmnWxK-31sem0T2wVT3pW_xT0Qnh8sQZvPz1vxqnOSpNn8NsL6LJU"/>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-black tracking-tight text-primary">Grilled Paneer Wrap</h3>
+<p class="text-on-surface-variant">Lean Protein • High Fiber</p>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-bold text-sm">
+                                        350 kcal
+                                    </div>
+</div>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                        46% fewer calories than your current choice
+                                    </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                        Low-glycemic index; maintains steady glucose
+                                    </li>
+</ul>
+<div class="pt-4 flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                                        Try Alternative
+                                    </button>
+<button class="w-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface py-4 rounded-2xl font-bold transition-all active:scale-95">
+                                        Save to Log Anyway
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Contextual Tip -->
+<div class="mt-6 p-6 rounded-3xl bg-secondary/10 border border-secondary/20 flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div class="space-y-1">
+<p class="text-sm font-bold text-secondary">Pro-Tip</p>
+<p class="text-sm text-on-surface-variant leading-snug">Drinking 250ml of warm water with lemon before this meal can boost thermogenesis by 3%.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-outline-variant/10 px-8 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] font-bold">Log</span>
+</button>
+<button class="bg-primary text-on-primary p-4 rounded-2xl -mt-12 sunlight-shadow active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="text-[10px] font-bold text-primary">AI</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</nav>
+</body></html>

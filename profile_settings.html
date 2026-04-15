@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Settings | NutriSense AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f8faf8",
+                    "surface-container-highest": "#e1e3e1",
+                    "primary": "#0d631b",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#2e1500",
+                    "on-secondary": "#ffffff",
+                    "outline": "#707a6c",
+                    "inverse-primary": "#88d982",
+                    "on-surface": "#191c1b",
+                    "on-secondary-fixed": "#001a41",
+                    "surface-container-high": "#e6e9e7",
+                    "surface-dim": "#d8dad9",
+                    "on-surface-variant": "#40493d",
+                    "tertiary": "#814700",
+                    "inverse-surface": "#2e3130",
+                    "secondary": "#0058bc",
+                    "tertiary-container": "#a45b00",
+                    "tertiary-fixed-dim": "#ffb778",
+                    "surface-container": "#eceeec",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-tertiary-container": "#ffeee2",
+                    "surface-container-low": "#f2f4f2",
+                    "secondary-container": "#0070eb",
+                    "outline-variant": "#bfcaba",
+                    "tertiary-fixed": "#ffdcc1",
+                    "on-tertiary-fixed-variant": "#6c3a00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f8faf8",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary-container": "#2e7d32",
+                    "on-primary-fixed": "#002204",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#88d982",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#a3f69c",
+                    "surface-tint": "#1b6d24",
+                    "surface-variant": "#e1e3e1",
+                    "on-background": "#191c1b",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004493",
+                    "inverse-on-surface": "#eff1ef",
+                    "surface": "#f8faf8",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-primary-container": "#cbffc2",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .tonal-shift-surface-container-low { background-color: #f2f4f2; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-emerald-50/80 dark:bg-zinc-950/80 backdrop-blur-xl shadow-sm dark:shadow-none no-border tonal-shift-surface-container-low">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-black text-emerald-900 dark:text-emerald-100 italic font-manrope tracking-tight">NutriSense AI</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Dashboard</a>
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Nutrition Log</a>
+<a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">AI Insights</a>
+<a class="text-emerald-700 dark:text-emerald-400 font-bold border-b-2 border-emerald-600 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-500 hover:bg-emerald-100/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-emerald-100/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<img alt="User profile settings" class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="close-up portrait of a professional woman with a warm expression and natural lighting in a bright office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVdnSZDWV5dnUGpBlU7lZZbhyy0Qp_6wiYOzM5KmWUzhzlhcaXOSVHiEcOfaPI9df4STjefxtZT89XrINJmAUuZ6woStK_MieNXFmuCZmEuYXMfELoBDIlAwjoRRr5NuQMqf395Csr-Kx6SCZVEsbavr-oVhcv8eGOcmffYzLMS58rGsFVS9I4U6k8wd5iLsMkMQk6gyNXWT8Dp9V77Fk9qlj4D_aZA6jNBJN5SQnjAGsaC57FgKhQEGA7SRra2RCWTNW4TPg2npCn"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-20">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen p-4 fixed left-0 w-72 bg-emerald-50 dark:bg-zinc-900 rounded-r-3xl shadow-2xl dark:shadow-none no-border space-y-4">
+<div class="px-4 py-6">
+<h2 class="text-xl font-bold text-emerald-800 dark:text-emerald-200 font-manrope">NutriSense AI</h2>
+<p class="text-xs text-zinc-500 font-medium tracking-widest uppercase mt-1">The Living Curator</p>
+</div>
+<div class="space-y-1 flex-1">
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 p-3 hover:bg-emerald-50 dark:hover:bg-zinc-800 rounded-xl transition-all font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 p-3 hover:bg-emerald-50 dark:hover:bg-zinc-800 rounded-xl transition-all font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                    Nutrition Log
+                </a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 p-3 hover:bg-emerald-50 dark:hover:bg-zinc-800 rounded-xl transition-all font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                    AI Insights
+                </a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 p-3 hover:bg-emerald-50 dark:hover:bg-zinc-800 rounded-xl transition-all font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+                    Meal Plans
+                </a>
+<a class="flex items-center gap-3 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-100 rounded-xl p-3 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</div>
+<div class="mt-auto p-4 bg-primary-container rounded-2xl text-on-primary-container">
+<button class="w-full font-bold flex items-center justify-center gap-2 py-2">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Quick Log Food
+                </button>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container-lowest/50 rounded-2xl">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover" data-alt="soft focus headshot of a smiling woman with brunette hair in a minimalist setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQYfY8cn3KR_1MvZTwtgnvDueymmndRbKIGNlQW-msL2FXymF4TVwj5N1O914K9xjQ03iVUIxmdghKg3PA-kEdaPXmPg_SzP4vBIs_CgSfv7OrLiXAqv4O5z_DZI8LRkA1AzZ63m2DZpampfAj4M2xLTJYK1h07CMOyjCbI1l6Zenbx2ir7R-Gjk7wuXit5Ae77c5ijo8skZH_3dPEha3_PHVnDTSPoOR9nkEQ7TJvoiDuP5YOxLjazBRWDXLZHtSLwAUxmnJLKxvK"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Elena</p>
+<p class="text-xs text-zinc-500 truncate">Premium Member</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-72 p-6 md:p-12 max-w-6xl mx-auto">
+<!-- Profile Header -->
+<header class="relative mb-12">
+<div class="flex flex-col md:flex-row items-start md:items-end gap-6">
+<div class="relative group">
+<img alt="Elena Profile" class="w-32 h-32 md:w-40 md:h-40 rounded-[2.5rem] object-cover shadow-2xl" data-alt="high-quality portrait of a woman with intelligent eyes, lit by soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeTj6-CHEMbeyujI3-8hquy7NGomqthPSyL66HwM8gRbIu3bcx7hjG998Y11nEVKVAqtCr5QK9-tEgDVmRDakFn10mu5uLYjJ1HlXc1v7NdZtlR-l9II2owfBYBABKosFVW1K7Hf4V5tEm16yb6ZCrhiL_GM0JuAPR-9eiF56v_H12Irx8325sU0QIRi1GXZItDfHqX10Ly7r2muve2ZvYWZdnBo71ORxelZ55Tt3fWN14OcF4sViuCT6oqK79NjSHyQv13fs055l6"/>
+<div class="absolute -bottom-2 -right-2 bg-primary text-on-primary p-3 rounded-2xl shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-bold text-sm">14 Day Streak</span>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-4">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface">Elena</h1>
+<span class="px-4 py-1.5 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-xs font-bold uppercase tracking-wider">Pro Athlete</span>
+</div>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-xl">
+                            Curating a lifestyle of vitality through data-driven nutrition and mindful movement.
+                        </p>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Personal Info & Dietary (Left Column) -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Personal Information -->
+<section class="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                                Personal Information
+                            </h3>
+<button class="text-sm font-semibold text-primary hover:underline">Edit Info</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-2xl">
+<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Email Address</p>
+<p class="font-semibold text-on-surface">elena.vitality@gmail.com</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl">
+<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Age</p>
+<p class="font-semibold text-on-surface">28 Years</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl">
+<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Current Height</p>
+<p class="font-semibold text-on-surface">172 cm</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl">
+<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Current Weight</p>
+<p class="font-semibold text-on-surface">64.5 kg</p>
+</div>
+</div>
+</section>
+<!-- Dietary Preferences & Goals -->
+<section class="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
+<h3 class="text-xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+                            Dietary Preferences &amp; Goals
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-primary-fixed/30 rounded-2xl border border-primary-fixed">
+<div>
+<p class="text-xs font-bold text-on-primary-fixed-variant uppercase tracking-widest">Active Goal</p>
+<p class="text-xl font-extrabold text-on-primary-fixed">Weight Loss</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="target">track_changes</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl">
+<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Dietary Restrictions</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+                                        Gluten-Free
+                                    </span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+                                        Dairy-Free
+                                    </span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-icon="close">close</span>
+                                        No Shellfish
+                                    </span>
+<button class="px-4 py-2 border-2 border-dashed border-outline-variant rounded-full text-sm font-bold text-zinc-500 hover:border-primary hover:text-primary transition-all">
+                                        + Add Restriction
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Account & Integrations (Right Column) -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Integrations Status -->
+<section class="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
+<h3 class="text-xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+                            Connected Systems
+                        </h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-2xl">
+<div class="w-12 h-12 bg-[#FFCA28]/10 flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-[#FFCA28]" data-icon="database">database</span>
+</div>
+<div class="flex-1">
+<p class="font-bold">Firebase Cloud</p>
+<p class="text-xs text-zinc-500">Live Sync Enabled</p>
+</div>
+<div class="w-3 h-3 bg-primary rounded-full shadow-[0_0_8px_rgba(13,99,27,0.6)]"></div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-2xl">
+<div class="w-12 h-12 bg-secondary/10 flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-secondary" data-icon="health_metrics">health_metrics</span>
+</div>
+<div class="flex-1">
+<p class="font-bold">Google Health Connect</p>
+<p class="text-xs text-zinc-500">Last synced 2m ago</p>
+</div>
+<div class="w-3 h-3 bg-primary rounded-full shadow-[0_0_8px_rgba(13,99,27,0.6)]"></div>
+</div>
+</div>
+</section>
+<!-- Account Settings -->
+<section class="bg-surface-container-low rounded-[2rem] p-8 space-y-4">
+<h3 class="text-xl font-bold mb-4">Account Settings</h3>
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest rounded-2xl transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 group-hover:text-primary" data-icon="notifications">notifications</span>
+<span class="font-semibold text-on-surface">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-zinc-400" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest rounded-2xl transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 group-hover:text-primary" data-icon="privacy_tip">privacy_tip</span>
+<span class="font-semibold text-on-surface">Privacy &amp; Data</span>
+</div>
+<span class="material-symbols-outlined text-zinc-400" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest rounded-2xl transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 group-hover:text-primary" data-icon="security">security</span>
+<span class="font-semibold text-on-surface">Security</span>
+</div>
+<span class="material-symbols-outlined text-zinc-400" data-icon="chevron_right">chevron_right</span>
+</button>
+<hr class="border-outline-variant/30 my-4"/>
+<button class="w-full flex items-center justify-between p-4 text-error hover:bg-error-container rounded-2xl transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-bold">Sign Out</span>
+</div>
+</button>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer-style CTA Section -->
+<div class="mt-16 p-1 bg-gradient-to-br from-primary to-primary-container rounded-[2.5rem]">
+<div class="bg-surface-container-lowest rounded-[2.4rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="space-y-4">
+<h2 class="text-3xl font-black text-on-surface leading-tight">Elevate your performance with <span class="text-primary italic">NutriSense AI Pro</span></h2>
+<p class="text-on-surface-variant max-w-md">Get personalized biochemical insights, DNA-based meal plans, and real-time biometric feedback.</p>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-105 transition-transform">Upgrade Now</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface font-bold rounded-full hover:bg-surface-container-high transition-colors">Compare Plans</button>
+</div>
+</div>
+<div class="relative w-64 h-64">
+<img alt="Healthy Bowl" class="w-full h-full object-cover rounded-[3rem] shadow-2xl rotate-3" data-alt="vibrant and colorful healthy harvest bowl with avocado, greens, and grains on a minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Uoyz7s9dcbSD3ZH0T2cS68JVAtGA58ZTRm2oN-YqHVAK87gjuxlrtT9yISg02B4F5zd4ZTchaRa71l1KACu8K7S12DqdqRE13sCK0_aKSVg0xys5t6oNf2AodEpqM7VdbXx9kIrQfw9JiW-zCNm32WS74PTY44g0dRM4ZS_u0omk48EPjeYEDsexQXjPqhlo9TwoX2Cl-5e8-EuNI1dwU5tBfSktKPT-j37LHTanO6e4QjaxWDXdj5mIMOCNrKRykGPY3mEMP07f"/>
+<div class="absolute -top-4 -left-4 bg-secondary text-on-secondary py-2 px-4 rounded-xl font-bold shadow-xl animate-pulse">
+                            AI CURATED
+                        </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar for Mobile -->
+<div class="md:hidden fixed bottom-6 left-6 right-6 z-50">
+<div class="bg-surface-container-lowest/80 backdrop-blur-2xl rounded-3xl shadow-2xl flex justify-around p-4 border border-outline-variant/10">
+<button class="text-zinc-400">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</button>
+<button class="text-zinc-400">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<button class="w-12 h-12 -mt-8 bg-primary rounded-2xl shadow-xl shadow-primary/30 flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="text-zinc-400">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</button>
+<button class="text-primary">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+</div>
+</div>
+</body></html>

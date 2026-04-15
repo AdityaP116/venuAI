@@ -1,0 +1,2 @@
+/* Minimal base - all styling handled by Tailwind CDN via index.html */
+* { box-sizing: border-box; }
